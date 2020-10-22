@@ -1,9 +1,9 @@
-var Carne = document.getElementById("carne");
-var Embutidos = document.getElementById("Embutidos");
-var Pescados = document.getElementById("Pescados");
-var Salsas = document.getElementById("Salsas");
-var Tragos = document.getElementById("Tragos");
-var Combos = document.getElementById("Combos");
+var Entradas = document.getElementById("Entradas");
+var Ensaladas = document.getElementById("Ensaladas");
+var Aves = document.getElementById("Aves");
+var Carnes = document.getElementById("Carnes");
+var Mariscos = document.getElementById("Mariscos");
+var Pastas = document.getElementById("Pastas");
 
 
 
@@ -15,10 +15,10 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+           
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.entradas) {
-                Carne.innerHTML += `
+                Entradas.innerHTML += `
 
         <li>
         <div class="media">
@@ -40,12 +40,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+           
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.ensaladas) {
-                Embutidos.innerHTML += `
+                Ensaladas.innerHTML += `
     
             <li>
             <div class="media">
@@ -67,12 +67,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+           
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.aves) {
-                Pescados.innerHTML += `
+                Aves.innerHTML += `
     
             <li>
             <div class="media">
@@ -94,12 +94,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+           
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.carnes) {
-                Salsas.innerHTML += `
+                Carnes.innerHTML += `
         
                 <li>
                 <div class="media">
@@ -122,12 +122,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+          
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.mariscos) {
-                Tragos.innerHTML += `
+                Mariscos.innerHTML += `
         
                 <li>
                 <div class="media">
@@ -148,12 +148,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+      
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.pastas) {
-                Combos.innerHTML += `
+                Pastas.innerHTML += `
             
                     <li>
                     <div class="media">
