@@ -19,7 +19,7 @@ $(document).ready(function() {
         <li>
         <div class="media">
 
-        <img class="mr-3" src="../IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
+        <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
         <div class="media-body">
           <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
           <span class="badge badge-success badge-pill">${datos.AR_PREDET}</span>
