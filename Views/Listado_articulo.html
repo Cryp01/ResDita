@@ -1,75 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="modal-header">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+    <nav class="navbar  justify-content-between fixed-top">
+        <div class="logo">
+            <img src="IMG/Logo2.svg" width="150px">
+        </div>
+        <div class="car">
+            <i class="fas fa-info-circle fa-2x"></i>
+            <i class="fas fa-shopping-cart fa-2x"></i>
+        </div>
+</div>
+<div class="modal-body">
+    <img src="IMG/bg.jpg" width="100%" height="200px">
 
-<body>
-
-    <br>
-    <div class="container">
-
-
-
-        <div id="accordion">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            ENTRADAS
-          </button>
-                    </h5>
-                </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                        <ul class="list-unstyled" id="carne">
-                        </ul>
-                    </div>
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Entradas
+                </button>
+                </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <img src="IMG/Entradas.jpg" width="100%" height="150px"><br><br>
+                    <ul class="list-unstyled" id="carne">
+                    </ul>
                 </div>
             </div>
-
         </div>
-    </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            ENSALADAS
-          </button>
-            </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-                <ul class="list-unstyled" id="Embutidos">
-                </ul>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                ENSALADAS
+            </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <img src="IMG/Entradas.jpg" width="100%" height="150px"><br><br>
+                    <ul class="list-unstyled" id="Embutidos">
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
 
 
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            AVES
-          </button>
-            </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-                <ul class="list-unstyled" id="Pescados">
-                </ul>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                AVES
+            </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    <img src="IMG/Entradas.jpg" width="100%" height="150px"><br><br>
+                    <ul class="list-unstyled" id="Pescados">
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
 
@@ -77,12 +71,13 @@
         <div class="card-header" id="headingFor">
             <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
-            CARNES
-        </button>
+                CARNES
+            </button>
             </h5>
         </div>
         <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordion">
             <div class="card-body">
+                <img src="IMG/Entradas.jpg" width="100%" height="150px"><br><br>
                 <ul class="list-unstyled" id="Salsas">
                 </ul>
             </div>
@@ -97,12 +92,13 @@
         <div class="card-header" id="headingFive">
             <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-            MARISCOS
-        </button>
+                MARISCOS
+            </button>
             </h5>
         </div>
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
             <div class="card-body">
+                <img src="IMG/Entradas.jpg" width="100%" height="150px"><br><br>
                 <ul class="list-unstyled" id="Tragos">
                 </ul>
             </div>
@@ -118,28 +114,23 @@
         <div class="card-header" id="headingSIX">
             <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSIX" aria-expanded="false" aria-controls="collapseSIX">
-                 PASTAS
-        </button>
+                PASTAS
+            </button>
             </h5>
         </div>
         <div id="collapseSIX" class="collapse" aria-labelledby="headingSIX" data-parent="#accordion">
             <div class="card-body">
+                <img src="IMG/Entradas.jpg" width="100%" height="150px"><br><br>
                 <ul class="list-unstyled" id="Combos">
                 </ul>
             </div>
         </div>
     </div>
 
-
-
-    </div>
-    <!--CONTAINER -->
-
-
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="Controllers/listado_articulos.js"></script>
-</body>
-
-</html>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="Controllers/listado_articulos.js"></script>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary  btn-lg">Carrito</button>
+</div>
