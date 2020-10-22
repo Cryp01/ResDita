@@ -1,6 +1,6 @@
 function Fact() {
     $("#ModalTable").empty();
-    Tabla = "Views/modal.html";
+    Tabla = "Views/listado_articulo.html";
     $("#ModalTable").load(Tabla);
 
 }
