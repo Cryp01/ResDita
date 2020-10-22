@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "../models/listado_articulos2.php",
+        url: "models/listado_articulos2.php",
         success: function(e) {
             console.log(e);
             var nuestro = JSON.parse(e);
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "../models/listado_articulos2.php",
+        url: "models/listado_articulos2.php",
         success: function(e) {
             console.log(e);
             var nuestro = JSON.parse(e);
@@ -67,7 +67,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "../models/listado_articulos2.php",
+        url: "models/listado_articulos2.php",
         success: function(e) {
             console.log(e);
             var nuestro = JSON.parse(e);
@@ -94,7 +94,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "../models/listado_articulos2.php",
+        url: "models/listado_articulos2.php",
         success: function(e) {
             console.log(e);
             var nuestro = JSON.parse(e);
@@ -122,7 +122,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "../models/listado_articulos2.php",
+        url: "models/listado_articulos2.php",
         success: function(e) {
             console.log(e);
             var nuestro = JSON.parse(e);
@@ -148,7 +148,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "../models/listado_articulos2.php",
+        url: "models/listado_articulos2.php",
         success: function(e) {
             console.log(e);
             var nuestro = JSON.parse(e);
