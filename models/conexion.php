@@ -5,7 +5,7 @@ ini_set('display_errors',1);
 
 
 $SERVER_NAME = "DBSERVER";
-$DATABASE="FACFOXSQL";
+$DATABASE="MRGRILLED";
 $DB_USER="sa";
 $DB_PASSWORD='pr0i$$a';
 
