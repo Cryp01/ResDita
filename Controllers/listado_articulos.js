@@ -5,10 +5,6 @@ var Carnes = document.getElementById("Carnes");
 var Mariscos = document.getElementById("Mariscos");
 var Pastas = document.getElementById("Pastas");
 
-
-
-
-
 $(document).ready(function() {
 
     $.ajax({
