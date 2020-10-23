@@ -11,13 +11,13 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-           
+          
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.entradas) {
                 Entradas.innerHTML += `
 
         <li>
-        <div class="media">
+        <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
 
         <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
         <div class="media-body">
@@ -44,7 +44,7 @@ $(document).ready(function() {
                 Ensaladas.innerHTML += `
     
             <li>
-            <div class="media">
+            <div class="media" >
     
             <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
             <div class="media-body">
