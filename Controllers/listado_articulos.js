@@ -11,7 +11,7 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-           
+            console.log(e);
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.entradas) {
                 Entradas.innerHTML += `
@@ -19,7 +19,7 @@ $(document).ready(function() {
         <li>
         <div class="media">
 
-        <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
+        <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" with="80px" height="100px">
         <div class="media-body">
           <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
           <span class="badge badge-success badge-pill">${datos.AR_PREDET}</span>
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-           
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.ensaladas) {
                 Ensaladas.innerHTML += `
@@ -65,7 +65,7 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-           
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.aves) {
                 Aves.innerHTML += `
@@ -92,7 +92,7 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-           
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.carnes) {
                 Carnes.innerHTML += `
@@ -120,7 +120,7 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-          
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.mariscos) {
                 Mariscos.innerHTML += `
@@ -146,7 +146,7 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-      
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.pastas) {
                 Pastas.innerHTML += `
