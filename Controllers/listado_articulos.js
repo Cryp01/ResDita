@@ -11,18 +11,20 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-          
             var nuestro = JSON.parse(e);
+            console.log(nuestro.aves.codigo);
             for (let datos of nuestro.entradas) {
+                console.log(datos.codigo, datos.AR_DESCRI);
+
                 Entradas.innerHTML += `
 
         <li>
-        <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
+        <div class="media" onclick="articulo('${datos.codigo}')">
 
-        <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
+        <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
         <div class="media-body">
           <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-          <span class="badge badge-success badge-pill">${datos.AR_PREDET}</span>
+          <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
           </div>
           </div>
          <small> ${datos.AR_DETALLE}</small>
@@ -38,18 +40,19 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-           
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.ensaladas) {
+                console.log(datos.codigo, datos.AR_DESCRI);
                 Ensaladas.innerHTML += `
     
             <li>
             <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
     
-            <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
+        <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
             <div class="media-body">
               <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-              <span class="badge badge-success badge-pill">${datos.AR_PREDET}</span>
+              <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
               </div>
               </div>
              <small> ${datos.AR_DETALLE}</small>
@@ -65,18 +68,19 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-           
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.aves) {
+                console.log(datos.codigo, datos.AR_DESCRI);
                 Aves.innerHTML += `
     
             <li>
             <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
     
-            <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
+            <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
             <div class="media-body">
               <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-              <span class="badge badge-success badge-pill">${datos.AR_PREDET}</span>
+              <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
               </div>
               </div>
              <small> ${datos.AR_DETALLE}</small>
@@ -92,18 +96,19 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-           
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.carnes) {
+                console.log(datos.codigo, datos.AR_DESCRI);
                 Carnes.innerHTML += `
         
                 <li>
                 <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
         
-                <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
+                <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                 <div class="media-body">
                   <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-                  <span class="badge badge-success badge-pill">${datos.AR_PREDET}</span>
+                  <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
                   </div>
                   </div>
                  <small> ${datos.AR_DETALLE}</small>
@@ -120,18 +125,19 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-          
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.mariscos) {
+                console.log(datos.codigo, datos.AR_DESCRI);
                 Mariscos.innerHTML += `
         
                 <li>
                 <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
         
-                <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
+                <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                 <div class="media-body">
                   <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-                  <span class="badge badge-success badge-pill">${datos.AR_PREDET}</span>
+                  <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
                   </div>
                   </div>
                  <small> ${datos.AR_DETALLE}</small>
@@ -146,17 +152,18 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-      
+
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.pastas) {
+                console.log(datos.codigo, datos.AR_DESCRI);
                 Pastas.innerHTML += `
             
                     <li>
-                    <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
-                    <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
+                    <div class="media">
+                    <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                     <div class="media-body">
                       <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-                      <span class="badge badge-success badge-pill">${currency(datos.AR_PREDET,{pattern: `# `})}</span>
+                      <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
                       </div>
                       </div>
                      <small> ${datos.AR_DETALLE}</small>
