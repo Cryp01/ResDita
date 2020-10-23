@@ -44,7 +44,7 @@ $(document).ready(function() {
                 Ensaladas.innerHTML += `
     
             <li>
-            <div class="media" >
+            <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
     
             <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
             <div class="media-body">
@@ -71,7 +71,7 @@ $(document).ready(function() {
                 Aves.innerHTML += `
     
             <li>
-            <div class="media">
+            <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
     
             <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
             <div class="media-body">
@@ -98,7 +98,7 @@ $(document).ready(function() {
                 Carnes.innerHTML += `
         
                 <li>
-                <div class="media">
+                <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
         
                 <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
                 <div class="media-body">
@@ -126,7 +126,7 @@ $(document).ready(function() {
                 Mariscos.innerHTML += `
         
                 <li>
-                <div class="media">
+                <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
         
                 <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
                 <div class="media-body">
@@ -152,11 +152,11 @@ $(document).ready(function() {
                 Pastas.innerHTML += `
             
                     <li>
-                    <div class="media">
+                    <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
                     <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
                     <div class="media-body">
                       <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-                      <span class="badge badge-success badge-pill">${datos.AR_PREDET}</span>
+                      <span class="badge badge-success badge-pill">${currency(datos.AR_PREDET,{pattern: `# `})}</span>
                       </div>
                       </div>
                      <small> ${datos.AR_DETALLE}</small>
