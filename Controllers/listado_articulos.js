@@ -1,24 +1,20 @@
-var Carne = document.getElementById("carne");
-var Embutidos = document.getElementById("Embutidos");
-var Pescados = document.getElementById("Pescados");
-var Salsas = document.getElementById("Salsas");
-var Tragos = document.getElementById("Tragos");
-var Combos = document.getElementById("Combos");
-
-
-
-
+var Entradas = document.getElementById("Entradas");
+var Ensaladas = document.getElementById("Ensaladas");
+var Aves = document.getElementById("Aves");
+var Carnes = document.getElementById("Carnes");
+var Mariscos = document.getElementById("Mariscos");
+var Pastas = document.getElementById("Pastas");
 
 $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+           
             var nuestro = JSON.parse(e);
-            for (let datos of nuestro.carne) {
-                Carne.innerHTML += `
+            for (let datos of nuestro.entradas) {
+                Entradas.innerHTML += `
 
         <li>
         <div class="media">
@@ -40,12 +36,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+           
             var nuestro = JSON.parse(e);
-            for (let datos of nuestro.embutido) {
-                Embutidos.innerHTML += `
+            for (let datos of nuestro.ensaladas) {
+                Ensaladas.innerHTML += `
     
             <li>
             <div class="media">
@@ -67,12 +63,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+           
             var nuestro = JSON.parse(e);
-            for (let datos of nuestro.pescados) {
-                Pescados.innerHTML += `
+            for (let datos of nuestro.aves) {
+                Aves.innerHTML += `
     
             <li>
             <div class="media">
@@ -94,12 +90,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+           
             var nuestro = JSON.parse(e);
-            for (let datos of nuestro.salsas) {
-                Salsas.innerHTML += `
+            for (let datos of nuestro.carnes) {
+                Carnes.innerHTML += `
         
                 <li>
                 <div class="media">
@@ -122,12 +118,12 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+          
             var nuestro = JSON.parse(e);
-            for (let datos of nuestro.tragos) {
-                Tragos.innerHTML += `
+            for (let datos of nuestro.mariscos) {
+                Mariscos.innerHTML += `
         
                 <li>
                 <div class="media">
@@ -148,16 +144,15 @@ $(document).ready(function() {
 
     $.ajax({
 
-        url: "models/listado_articulos2.php",
+        url: "models/listado_articulos.php",
         success: function(e) {
-            console.log(e);
+      
             var nuestro = JSON.parse(e);
-            for (let datos of nuestro.combos) {
-                Combos.innerHTML += `
+            for (let datos of nuestro.pastas) {
+                Pastas.innerHTML += `
             
                     <li>
                     <div class="media">
-            
                     <img class="mr-3" src="IMG/bg.jpg" alt="Generic placeholder image" with="80px" height="100px">
                     <div class="media-body">
                       <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
