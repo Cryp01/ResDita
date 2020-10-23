@@ -19,12 +19,12 @@ $(document).ready(function() {
                 Entradas.innerHTML += `
 
         <li>
-        <div class="media" onclick="articulo('${datos.codigo}')">
+        <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
 
         <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
         <div class="media-body">
           <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-          <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
+          <span class="badge badge-success badge-pill">RD$  ${ currency(datos.AR_PREDET,{pattern: `# `}).format()}</span>
           </div>
           </div>
          <small> ${datos.AR_DETALLE}</small>
@@ -33,7 +33,6 @@ $(document).ready(function() {
             }
         }
     }); //ajax carne
-
 
 
     $.ajax({
@@ -47,12 +46,12 @@ $(document).ready(function() {
                 Ensaladas.innerHTML += `
     
             <li>
-            <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
+            <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
     
         <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
             <div class="media-body">
               <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-              <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
+              <span class="badge badge-success badge-pill">RD$  ${currency(datos.AR_PREDET,{pattern: `# `}).format()}</span>
               </div>
               </div>
              <small> ${datos.AR_DETALLE}</small>
@@ -75,12 +74,12 @@ $(document).ready(function() {
                 Aves.innerHTML += `
     
             <li>
-            <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
+            <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
     
             <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
             <div class="media-body">
               <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-              <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
+              <span class="badge badge-success badge-pill">RD$  ${currency(datos.AR_PREDET,{pattern: `# `}).format()}</span>
               </div>
               </div>
              <small> ${datos.AR_DETALLE}</small>
@@ -103,12 +102,12 @@ $(document).ready(function() {
                 Carnes.innerHTML += `
         
                 <li>
-                <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
+                <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
         
                 <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                 <div class="media-body">
                   <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-                  <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
+                  <span class="badge badge-success badge-pill">RD$  ${currency(datos.AR_PREDET,{pattern: `# `}).format()}</span>
                   </div>
                   </div>
                  <small> ${datos.AR_DETALLE}</small>
@@ -132,12 +131,12 @@ $(document).ready(function() {
                 Mariscos.innerHTML += `
         
                 <li>
-                <div class="media" onclick="articulo('${datos.AR_CODIGO}')">
+                <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
         
                 <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                 <div class="media-body">
                   <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-                  <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
+                  <span class="badge badge-success badge-pill">RD$  ${currency(datos.AR_PREDET,{pattern: `# `}).format()}</span>
                   </div>
                   </div>
                  <small> ${datos.AR_DETALLE}</small>
@@ -159,11 +158,11 @@ $(document).ready(function() {
                 Pastas.innerHTML += `
             
                     <li>
-                    <div class="media">
+                    <div class="media"  onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
                     <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                     <div class="media-body">
                       <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
-                      <span class="badge badge-success badge-pill">RD$  ${datos.AR_PREDET}</span>
+                      <span class="badge badge-success badge-pill">RD$  ${currency(datos.AR_PREDET,{pattern: `# `}).format()}</span>
                       </div>
                       </div>
                      <small> ${datos.AR_DETALLE}</small>
@@ -173,14 +172,5 @@ $(document).ready(function() {
         }
     }); //ajax combos
 
-
-
-
-
-
-
-
-
-
-
 });
+
