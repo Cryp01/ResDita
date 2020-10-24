@@ -12,7 +12,6 @@ $(document).ready(function() {
         url: "models/listado_articulos.php",
         success: function(e) {
             var nuestro = JSON.parse(e);
-            console.log(nuestro.aves.codigo);
             for (let datos of nuestro.entradas) {
                 console.log(datos.codigo, datos.AR_DESCRI);
 
@@ -42,7 +41,6 @@ $(document).ready(function() {
 
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.ensaladas) {
-                console.log(datos.codigo, datos.AR_DESCRI);
                 Ensaladas.innerHTML += `
     
             <li>
@@ -70,7 +68,6 @@ $(document).ready(function() {
 
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.aves) {
-                console.log(datos.codigo, datos.AR_DESCRI);
                 Aves.innerHTML += `
     
             <li>
@@ -98,7 +95,6 @@ $(document).ready(function() {
 
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.carnes) {
-                console.log(datos.codigo, datos.AR_DESCRI);
                 Carnes.innerHTML += `
         
                 <li>
@@ -127,7 +123,6 @@ $(document).ready(function() {
 
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.mariscos) {
-                console.log(datos.codigo, datos.AR_DESCRI);
                 Mariscos.innerHTML += `
         
                 <li>
@@ -151,10 +146,9 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-
+                console.log(e);
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.pastas) {
-                console.log(datos.codigo, datos.AR_DESCRI);
                 Pastas.innerHTML += `
             
                     <li>

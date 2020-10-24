@@ -1,28 +1,35 @@
 
+
+
+
+
 var modal = document.getElementById("ModalTable");
 var contenido = '';
 function articulo(codigo,precio,nombre)
 {
+   
     $("#ModalTable").empty();
- /*
-    Tabla = "Views/articulo.html";
-  
-*/
-    $.ajax({
+    
+     $.ajax({
 
      type:"post",
      url:"models/guarniciones.php",
+     DataType:"json",
      data: "arcodigo=" + codigo,
      success:function(e)
      {
+
+        console.log(e);
+       
         
-        var datos = JSON.parse(e);
-
-        if(datos)
+      
 
 
-
-        contenido =` <div class="modal-header">
+        contenido =` 
+        <link rel="stylesheet" href="Styles/radio.css">
+      
+        
+        <div class="modal-header">
         <nav class="navbar fixed-top">
             <div style="border-right: 1px solid black; height: 100%; width: 20%; margin: 0px;">
                 <i class="btn fas fa-arrow-left fa-2x" onclick="Fact();"></i>
@@ -43,6 +50,40 @@ function articulo(codigo,precio,nombre)
             <textarea style="font: 400 13.3333px Arial;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Inserte aqui las Instrucciones especiales del producto "></textarea>
         </div>
         <div id="guarnicion">
+        <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+        <h2 id="bulgy-radios-label">Select an option</h2>
+        <label>
+          <input type="radio" name="options" checked />
+          <span class="radio"></span>
+          <span class="label">First option</span>
+        </label>
+        <label>
+          <input type="radio" name="options" />
+          <span class="radio"></span>
+          <span class="label">Second option</span>
+        </label>
+        <label>
+          <input type="radio" name="options" />
+          <span class="radio"></span>
+          <span class="label">Third option</span>
+        </label>
+        <label>
+          <input type="radio" name="options" />
+          <span class="radio"></span>
+          <span class="label">Fourth option</span>
+        </label>
+        <label>
+          <input type="radio" name="options" />
+          <span class="radio"></span>
+          <span class="label">Last option</span>
+        </label>
+      </div>
+      
+      
+        
+    
+
+
         
         
         </div>
@@ -67,7 +108,12 @@ function articulo(codigo,precio,nombre)
         <div>Agregar al Pedido</div>
         </div>
     </button>
-        </div>  `;
+        </div> 
+
+        
+
+        
+        `;
 
      },
      complete: function() {
@@ -94,7 +140,6 @@ function menos(current){
         precio.innerHTML = currency((current * cantidad.value),{pattern: `# `}).format();
     }
 }
-
 
 
 
