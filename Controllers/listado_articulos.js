@@ -7,15 +7,15 @@ var Pastas = document.getElementById("Pastas");
 
 $(document).ready(function() {
 
-    $.ajax({
+            $.ajax({
 
-        url: "models/listado_articulos.php",
-        success: function(e) {
-            var nuestro = JSON.parse(e);
-            for (let datos of nuestro.entradas) {
-                console.log(datos.codigo, datos.AR_DESCRI);
+                        url: "models/listado_articulos.php",
+                        success: function(e) {
+                                var nuestro = JSON.parse(e);
+                                for (let datos of nuestro.entradas) {
 
-                Entradas.innerHTML += `
+
+                                    Entradas.innerHTML += `
 
         <li>
         <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
@@ -146,7 +146,6 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-                console.log(e);
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.pastas) {
                 Pastas.innerHTML += `
@@ -167,4 +166,3 @@ $(document).ready(function() {
     }); //ajax combos
 
 });
-

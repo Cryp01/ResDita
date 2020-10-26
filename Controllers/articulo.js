@@ -1,33 +1,23 @@
-
-
-
-
-
 var modal = document.getElementById("ModalTable");
 var contenido = '';
-function articulo(codigo,precio,nombre)
-{
-   
+var animacion = '';
+
+function articulo(codigo, precio, nombre) {
+
     $("#ModalTable").empty();
-    
-     $.ajax({
 
-     type:"post",
-     url:"models/guarniciones.php",
-     DataType:"json",
-     data: "arcodigo=" + codigo,
-     success:function(e)
-     {
+    $.ajax({
 
-        console.log(e);
-       
-        
-      
+        type: "post",
+        url: "models/guarniciones.php",
+        DataType: "json",
+        data: "arcodigo=" + codigo,
+        success: function(e) {
 
 
-        contenido =` 
-        <link rel="stylesheet" href="Styles/radio.css">
-      
+
+            contenido = ` 
+    <link rel="stylesheet" href="Styles/radio.css">
         
         <div class="modal-header">
         <nav class="navbar fixed-top">
@@ -51,28 +41,28 @@ function articulo(codigo,precio,nombre)
         </div>
         <div id="guarnicion">
         <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
-        <h2 id="bulgy-radios-label">Select an option</h2>
-        <label>
+        <h2 id="bulgy-radios-label">Guarnición</h2>
+        <label id="label" onclick="animacion();">
           <input type="radio" name="options" checked />
           <span class="radio"></span>
-          <span class="label">First option</span>
+          <span class="label" id="label">First option</span>
         </label>
-        <label>
+        <label id=".label">
           <input type="radio" name="options" />
           <span class="radio"></span>
           <span class="label">Second option</span>
         </label>
-        <label>
+        <label id=".label">
           <input type="radio" name="options" />
           <span class="radio"></span>
           <span class="label">Third option</span>
         </label>
-        <label>
+        <label id=".label">
           <input type="radio" name="options" />
           <span class="radio"></span>
           <span class="label">Fourth option</span>
         </label>
-        <label>
+        <label id=".label">
           <input type="radio" name="options" />
           <span class="radio"></span>
           <span class="label">Last option</span>
@@ -99,7 +89,7 @@ function articulo(codigo,precio,nombre)
     
     </div>
         <div class="modal-footer" style="width: 100%;">
-        <button class="btn-primary btn btn-lg" fixed-bottom style="height: 10%; width:100%;">
+        <button class="btn-primary btn btn-lg" style="height: 10%; width:100%; position: fixed; left: 0; bottom: 0;">
         <div class="d-flex justify-content-between">
         <div>
         RD$ 
@@ -109,37 +99,32 @@ function articulo(codigo,precio,nombre)
         </div>
     </button>
         </div> 
-
-        
-
-        
+          ${animacion}
         `;
 
-     },
-     complete: function() {
-        modal.innerHTML += contenido;
-      }
-     
+        },
+        complete: function() {
+            modal.innerHTML += contenido;
+        }
+
     });
-   
-    
+
+
 }
 
-function mas(current){
+function mas(current) {
     precio = document.getElementById('precio');
     cantidad = document.getElementById('cantidad');
-    cantidad.value = parseFloat(cantidad.value)+ 1;
-    
-    precio.innerHTML = currency(current * cantidad.value,{pattern: `# `}).format() ;
+    cantidad.value = parseFloat(cantidad.value) + 1;
+
+    precio.innerHTML = currency(current * cantidad.value, { pattern: `# ` }).format();
 }
-function menos(current){
+
+function menos(current) {
     cantidad = document.getElementById('cantidad');
     precio = document.getElementById('precio');
-    if(cantidad.value > 1){
+    if (cantidad.value > 1) {
         cantidad.value -= 1;
-        precio.innerHTML = currency((current * cantidad.value),{pattern: `# `}).format();
+        precio.innerHTML = currency((current * cantidad.value), { pattern: `# ` }).format();
     }
 }
-
-
-
