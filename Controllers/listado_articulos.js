@@ -13,7 +13,6 @@ $(document).ready(function() {
         success: function(e) {
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.entradas) {
-                console.log(datos.codigo, datos.AR_DESCRI);
 
                 Entradas.innerHTML += `
 
@@ -146,7 +145,7 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
-                console.log(e);
+               
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.pastas) {
                 Pastas.innerHTML += `

@@ -32,6 +32,9 @@ if($contaguarniciones != 0 || $containgredientes || 0 && $contatermino || 0)
 {
     echo json_encode(['guarniciones' => $value,'ingredientes' => $value2,'termino' => $value3]);
 }
+else {
+    echo json_encode(['guarniciones' => $value,'ingredientes' => $value2,'termino' => $value3]);
+}
 
 
 

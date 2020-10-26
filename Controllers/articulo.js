@@ -5,6 +5,9 @@
 
 var modal = document.getElementById("ModalTable");
 var contenido = '';
+var extras = '';
+var extras2 = '';
+var extras3 = '';
 function articulo(codigo,precio,nombre)
 {
    
@@ -19,10 +22,199 @@ function articulo(codigo,precio,nombre)
      success:function(e)
      {
 
-        console.log(e);
-       
-        
-      
+      var valor = JSON.parse(e);
+
+        console.log(valor);
+        if(valor.ingredientes == 0 && valor.guarniciones == 0 && valor.termino == 0)
+        {
+          extras= '';
+        }
+        else if(valor.guarniciones != 0 && valor.termino != 0 && valor.ingredientes != 0)
+        {
+
+          extras = '';
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Guarniciones</h5>`;
+          $.each(valor.guarniciones, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="guarnicion" value="${item.ac_descri}" />
+          <span class="radio"></span>
+          <span class="label">${item.ac_descri}</span>
+          </label>
+            `;
+          });
+
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Ingredientes</h5>`;
+          $.each(valor.ingredientes, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="Ingredientes" value="${item.IN_DESCRI}" />
+          <span class="radio"></span>
+          <span class="label">${item.IN_DESCRI}</span>
+          </label>
+            `;
+          });
+
+
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Terminos</h5>`;
+          $.each(valor.termino, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="termino" value="${item.TE_DESCRI}"  />
+          <span class="radio"></span>
+          <span class="label">${item.TE_DESCRI}</span>
+          </label>
+            `;
+          });
+
+
+
+
+
+
+
+        }
+        else if(valor.ingredientes == 0 && valor.termino == 0 && valor.guarniciones != 0)
+        {
+          extras = '';
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Guarniciones</h5>`;
+          $.each(valor.guarniciones, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="guarnicion" value="${item.ac_descri}" />
+          <span class="radio"></span>
+          <span class="label">${item.ac_descri}</span>
+          </label>
+            `;
+          });
+        }
+        else if(valor.guarniciones == 0 && valor.termino == 0 && valor.ingredientes != 0)
+        {
+          extras = '';
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Ingredientes</h5>`;
+          $.each(valor.ingredientes, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="Ingredientes" ${item.IN_DESCRI}  />
+          <span class="radio"></span>
+          <span class="label">${item.IN_DESCRI}</span>
+          </label>
+            `;
+          });
+        }
+        else if(valor.guarniciones == 0 && valor.ingredientes == 0 && valor.termino != 0)
+        {
+          extras = '';
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Terminos</h5>`;
+          $.each(valor.termino, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="termino" value="${item.IN_DESCRI}"  />
+          <span class="radio"></span>
+          <span class="label">${item.IN_DESCRI}</span>
+          </label>
+            `;
+          });
+        }
+        else if(valor.termino == 0 && valor.ingredientes != 0 && valor.guarniciones != 0)
+        {
+
+          extras = '';
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">guarniciones</h5>`;
+          $.each(valor.guarniciones, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="guarnicion" value="${item.ac_descri}"   />
+          <span class="radio"></span>
+          <span class="label">${item.ac_descri}</span>
+          </label>
+            `;
+          });
+
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Ingredientes</h5>`;
+          $.each(valor.ingredientes, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="Ingredientes" value="${item.IN_DESCRI}"  />
+          <span class="radio"></span>
+          <span class="label">${item.IN_DESCRI}</span>
+          </label>
+            `;
+          });
+
+
+        }
+        else if(valor.ingredientes == 0 && valor.termino != 0 && valor.guarniciones != 0)
+        {
+          extras = '';
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">guarniciones</h5>`;
+          $.each(valor.guarniciones, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="guarnicion" value="${item.ac_descri}"   />
+          <span class="radio"></span>
+          <span class="label">${item.ac_descri}</span>
+          </label>
+            `;
+          });
+
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Terminos</h5>`;
+          $.each(valor.termino, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="termino" value="${item.TE_DESCRI}"  />
+          <span class="radio"></span>
+          <span class="label">${item.TE_DESCRI}</span>
+          </label>
+            `;
+          });
+
+
+
+        }
+        else if(valor.guarniciones == 0 && valor.termino != 0 && valor.ingredientes != 0)
+        {
+
+
+          extras = '';
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Ingredientes</h5>`;
+          $.each(valor.ingredientes, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="Ingredientes" value="${item.IN_DESCRI}"   />
+          <span class="radio"></span>
+          <span class="label">${item.IN_DESCRI}</span>
+          </label>
+            `;
+          });
+
+          extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+          <h5 id="bulgy-radios-label">Terminos</h5>`;
+          $.each(valor.termino, function (i, item) {
+            extras += `
+          <label>
+          <input type="radio" name="termino" value="${item.TE_DESCRI}"  />
+          <span class="radio"></span>
+          <span class="label">${item.TE_DESCRI}</span>
+          </label>
+            `;
+          });
+
+
+
+
+        }
 
 
         contenido =` 
@@ -50,42 +242,12 @@ function articulo(codigo,precio,nombre)
             <textarea style="font: 400 13.3333px Arial;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Inserte aqui las Instrucciones especiales del producto "></textarea>
         </div>
         <div id="guarnicion">
-        <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
-        <h2 id="bulgy-radios-label">Select an option</h2>
-        <label>
-          <input type="radio" name="options" checked />
-          <span class="radio"></span>
-          <span class="label">First option</span>
-        </label>
-        <label>
-          <input type="radio" name="options" />
-          <span class="radio"></span>
-          <span class="label">Second option</span>
-        </label>
-        <label>
-          <input type="radio" name="options" />
-          <span class="radio"></span>
-          <span class="label">Third option</span>
-        </label>
-        <label>
-          <input type="radio" name="options" />
-          <span class="radio"></span>
-          <span class="label">Fourth option</span>
-        </label>
-        <label>
-          <input type="radio" name="options" />
-          <span class="radio"></span>
-          <span class="label">Last option</span>
-        </label>
-      </div>
-      
-      
-        
-    
 
+       
 
-        
-        
+        ${extras}
+
+        </div>       
         </div>
         <h4 style="margin: 15px;">Cantidad: </h4>
         <div class="d-flex justify-content-between" style="border: 2px solid black; border-radius: 5px; margin:15px;">
@@ -110,9 +272,6 @@ function articulo(codigo,precio,nombre)
     </button>
         </div> 
 
-        
-
-        
         `;
 
      },
