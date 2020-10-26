@@ -31,6 +31,7 @@ function articulo(codigo,precio,nombre)
         }
         else if(valor.guarniciones != 0 && valor.termino != 0 && valor.ingredientes != 0)
         {
+          alert("aqui va termino, guarnicion y ingrediente");
 
           extras = '';
           extras += `<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
@@ -69,11 +70,6 @@ function articulo(codigo,precio,nombre)
           </label>
             `;
           });
-
-
-
-
-
 
 
         }
@@ -180,7 +176,6 @@ function articulo(codigo,precio,nombre)
           });
 
 
-
         }
         else if(valor.guarniciones == 0 && valor.termino != 0 && valor.ingredientes != 0)
         {
@@ -272,6 +267,9 @@ function articulo(codigo,precio,nombre)
     </button>
         </div> 
 
+        
+
+        
         `;
 
      },
