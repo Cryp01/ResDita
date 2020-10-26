@@ -4,7 +4,7 @@ session_start();
 ini_set('display_errors',1);
 
 
-$SERVER_NAME = "DBSERVER";
+$SERVER_NAME = "DBSERVER\FACFOXSQL";
 $DATABASE="FACFOXSQL";
 $DB_USER="sa";
 $DB_PASSWORD='pr0i$$a';
