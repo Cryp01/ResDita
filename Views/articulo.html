@@ -1,78 +1,33 @@
-<style>
-    .fullscreen-modal .modal-dialog {
-        margin: 0 !important;
-        margin-right: auto !important;
-        margin-left: auto !important;
-        width: 100% !important;
-    }
-    
-    @media (min-width: 768px) {
-        .fullscreen-modal .modal-dialog {
-            width: 750px !important;
-        }
-    }
-    
-    @media (min-width: 992px) {
-        .fullscreen-modal .modal-dialog {
-            width: 970px !important;
-        }
-    }
-    
-    @media (min-width: 1200px) {
-        .fullscreen-modal .modal-dialog {
-            width: 1170px !important;
-        }
-    }
-</style>
-<div class="modal-header">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Styles/fuente.css">
+    <link rel="stylesheet" href="../Styles/parallax.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
     <nav class="navbar fixed-top">
         <div style="border-right: 1px solid black; height: 100%; width: 20%; margin: 0px;">
-            <i class="btn fas fa-arrow-left fa-2x"></i>
+            <i class="btn fas fa-arrow-left fa-2x" onclick="Fact();"></i>
         </div>
-        <h5>BURRITO</h5>
+        <h5>name</h5>
         <div></div>
         <div></div>
         <div></div>
-
     </nav>
-</div>
-<div class="modal-body">
+    <div class="parallax" style="height: 50%;"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous ">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous ">
+</script>
 
-
-
-
-
-    <img src="IMG/B1151.jpg" style="width: 100%; height: 250px;" style="margin: 5px;"><br>
-    <p style="margin: 15px;"> Este es un burrito mexicano con carne, quezo, arroz, frijoles en vuelta en una tortilla</p>
-    <h6 style="margin: 15px;">Instrucciones especiales: </h6>
-    <div class="form-group" style="margin: 15px;">
-        <textarea style="font: 400 13.3333px Arial;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Inserte aqui las Instrucciones especiales del producto "></textarea>
-    </div>
-    <div id="guarnicion"></div>
-    <h4 style="margin: 15px;">Cantidad: </h4>
-    <div class="d-flex justify-content-between" style="border: 2px solid black; border-radius: 5px;">
-        <input type="tel" value="1" id="cantidad" style="border: 0px;" size="20%">
-        <div>
-            <button class="btn btn-lg btn-secondary" id="menos" style="margin: 5px; width: 50px;">-</button>
-            <button class="btn btn-lg btn-secondary" id="mas" style="margin: 5px; width: 50px;">+</button>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-</div>
-<div class="modal-footer" style="width: 100%;">
-    <button class="fixed-bottom btn-primary " style="height: 10%;">
-            <div class="d-flex justify-content-between">
-            <div id="precio">a</div>
-            <div>Agregar al Pedido</div>
-            </div>
-        </button>
-
-</div>
-<script src="Controllers/articulo.js"></script>
+</html>
