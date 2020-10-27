@@ -15,9 +15,10 @@ nav {
 
 .modal {
     width: 100%;
+    transition: color 0.2s 0s, width 0.3s 0.2s;
 }
-.cantidad{
-    border: 0px; 
-    font-size:20px;
- 
+
+.cantidad {
+    border: 0px;
+    font-size: 20px;
 }

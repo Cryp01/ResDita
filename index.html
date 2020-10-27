@@ -9,11 +9,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
- 
+
     <title>ResDita</title>
 </head>
 
 <style>
+    .modal {
+        transition: ease-in 300ms;
+    }
+    
     .fullscreen-modal .modal-dialog {
         margin: 0 !important;
         margin-right: auto !important;
@@ -24,6 +28,7 @@
     @media (min-width: 768px) {
         .fullscreen-modal .modal-dialog {
             width: 750px !important;
+            height: 100%;
         }
         .modal-body {
             padding: 1rem !important;
@@ -64,11 +69,84 @@
     .card-body {
         padding: 0px !important;
     }
+    
+    @keyframes ldio-0gzzoza6dojj {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+    
+    .ldio-0gzzoza6dojj div {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border: 20px solid #e15b64;
+        border-top-color: transparent;
+        border-radius: 50%;
+    }
+    
+    .ldio-0gzzoza6dojj div {
+        animation: ldio-0gzzoza6dojj 1s linear infinite;
+        top: 100px;
+        left: 100px
+    }
+    
+    .loadingio-spinner-rolling-vixie602h6q {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        overflow: hidden;
+        background: #ffffff;
+    }
+    
+    .ldio-0gzzoza6dojj {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform: translateZ(0) scale(1);
+        backface-visibility: hidden;
+        transform-origin: 0 0;
+        /* see note above */
+    }
+    
+    .ldio-0gzzoza6dojj div {
+        box-sizing: content-box;
+    }
+    
+    .centrado {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 4;
+        background-color: white;
+    }
+    
+    .fixed-top {
+        z-index: 1 !important;
+    }
+    
+    .hidden {
+        overflow: hidden;
+    }
 </style>
 
 
 
-<body>
+<body class="hidden">
+    <div class="centrado" id="onload">
+        <div class="loadingio-spinner-rolling-vixie602h6q">
+            <div class="ldio-0gzzoza6dojj">
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="modal fullscreen-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog  modal-lg" role="document">
             <div id="ModalTable" class="modal-content">
@@ -108,7 +186,12 @@
 <script src="Controllers/carrito.js"></script>
 <script src="Controllers/articulo.js"></script>
 <script src="Controllers/radio.js"></script>
-<script>$(document).on('touchmove', false);</script>
+<script>
+    $(document).on('touchmove', false);
+    window.onload = function() {
+        $('#onload').fadeOut();
+    }
+</script>
 
 
 </html>

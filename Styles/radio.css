@@ -33,19 +33,20 @@ h2 {
 }
 
 .bulgy-radios label {
-  display: block;
-  position: relative;
-  height: 1em;
-  padding-left: 4rem;
-  margin-bottom: 1.75rem;
-  cursor: pointer;
-  /*font-size: 2.5rem; */
-  user-select: none;
-  color: #555;
-  letter-spacing: 1px;
+    display: block;
+    position: relative;
+    height: 1em;
+    padding-left: 4rem;
+    margin-bottom: 1.75rem;
+    cursor: pointer;
+    /*font-size: 2.5rem; */
+    user-select: none;
+    color: #555;
+    letter-spacing: 1px;
 }
-.bulgy-radios label:hover input:not(:checked) ~ .radio {
-  opacity: 0.8;
+
+.bulgy-radios label:hover input:not(:checked)~.radio {
+    opacity: 0.8;
 }
 
 .bulgy-radios label:hover input:not(:checked)~.radio {
