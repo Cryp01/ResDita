@@ -7,18 +7,18 @@ var Pastas = document.getElementById("Pastas");
 
 $(document).ready(function() {
 
-            $.ajax({
 
-                        url: "models/listado_articulos.php",
-                        success: function(e) {
-                                var nuestro = JSON.parse(e);
-                                for (let datos of nuestro.entradas) {
+    $.ajax({
 
-
-                                    Entradas.innerHTML += `
+        url: "models/listado_articulos.php",
+        success: function(e) {
+            var nuestro = JSON.parse(e);
+            for (let datos of nuestro.entradas) {
+                console.log(nuestro.entradas);
+                Entradas.innerHTML += `
 
         <li>
-        <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
+        <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}','${datos.AR_DETALLE}')">
 
         <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
         <div class="media-body">
@@ -44,7 +44,7 @@ $(document).ready(function() {
                 Ensaladas.innerHTML += `
     
             <li>
-            <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
+            <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}','${datos.AR_DETALLE}')">
     
         <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
             <div class="media-body">
@@ -71,7 +71,7 @@ $(document).ready(function() {
                 Aves.innerHTML += `
     
             <li>
-            <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
+            <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}','${datos.AR_DETALLE}')">
     
             <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
             <div class="media-body">
@@ -98,7 +98,7 @@ $(document).ready(function() {
                 Carnes.innerHTML += `
         
                 <li>
-                <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
+                <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}','${datos.AR_DETALLE}')">
         
                 <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                 <div class="media-body">
@@ -126,7 +126,7 @@ $(document).ready(function() {
                 Mariscos.innerHTML += `
         
                 <li>
-                <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
+                <div class="media" onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}','${datos.AR_DETALLE}')">
         
                 <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                 <div class="media-body">
@@ -146,12 +146,13 @@ $(document).ready(function() {
 
         url: "models/listado_articulos.php",
         success: function(e) {
+               
             var nuestro = JSON.parse(e);
             for (let datos of nuestro.pastas) {
                 Pastas.innerHTML += `
             
                     <li>
-                    <div class="media"  onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}')">
+                    <div class="media"  onclick="articulo('${datos.codigo}','${datos.AR_PREDET}','${datos.AR_DESCRI}','${datos.AR_DETALLE}')">
                     <img class="mr-3" src="IMG/${datos.codigo}.jpg" alt="Generic placeholder image" width="150px" height="100px">
                     <div class="media-body">
                       <h8 class="mt-0 mb-1 text-primary">${datos.AR_DESCRI}</h8><BR>
@@ -166,3 +167,4 @@ $(document).ready(function() {
     }); //ajax combos
 
 });
+
