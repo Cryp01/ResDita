@@ -71,12 +71,6 @@ AND GETDATE() BETWEEN pv_horaI AND pv_horaf
 WHERE a.AR_control='S' and a.ar_activado=' ' and A.DE_CODIGO='B29' order by ar_cosfob asc");
 $value3 = $PESCADOS->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-
-
-
-
 //----------DEPARTAMENTO DE CARNES
 $SALSAS = $pdo->query("SELECT top 5 rtrim(a.AR_CODIGO) as  codigo, a.AR_DESCRI,a.AR_ITBIS,a.AR_DESCU,a.AR_DETALLE, 
 a.AR_PREDET,a.AL_CODIGO,

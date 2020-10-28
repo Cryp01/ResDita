@@ -3,4 +3,7 @@ function Fact() {
     Tabla = "Views/listado_articulo.html";
     $("#onload").fadeIn();
     $("#ModalTable").load(Tabla);
+    $('body').add('hidden');
+
+
 }
