@@ -1,11 +1,14 @@
-var carrito = JSON.parse(localStorage.getItem('car'));
+var carrito = JSON.parse(sessionStorage.getItem('car'));
 if (carrito == null) {
     carrito = [];
 }
 
 function showCarrito() {
     $("#onload").fadeIn();
-    var current = JSON.parse(localStorage.getItem('car'));
+    var current = JSON.parse(sessionStorage.getItem('car'));
+    if (current == null) {
+        current = [];
+    }
     $("#ModalTable").empty();
     var table = '';
     contenido = '';
@@ -13,9 +16,10 @@ function showCarrito() {
     var ingrediente = '';
     var termino = '';
     var instruciones = '';
-
     var subtotal = 0;
     var total = 0;
+    var ley = 0.00;
+    var itbs = 0;
 
     for (let datos of current) {
         guarnicion = '';
@@ -23,31 +27,36 @@ function showCarrito() {
         termino = '';
         instruciones = '';
         if (datos.guarnicion) {
-            guarnicion = '<small>Guarnicion: ' + datos.guarnicion + '</small><br>';
+            guarnicion = '<small>' + datos.guarnicion + '</small><br>';
         }
         if (datos.ingrediente) {
-            ingrediente = '<small>Ingrediente: ' + datos.ingrediente + '</small><br>';
+            ingrediente = '<small>SIN ' + datos.ingrediente + '</small><br>';
         }
         if (datos.termino) {
-            termino = '<small>Termino: ' + datos.termino + '</small><br>';
+            termino = '<small>' + datos.termino + '</small><br>';
         }
         if (datos.instruccion) {
-            instruciones = '<small>Intruccion: ' + datos.instruccion + '</small>';
+            instruciones = '<small>' + datos.instruccion + '</small>';
         }
 
         subtotal += datos.precio * datos.cantidad;
-        total = (subtotal + (subtotal * 0.1)) + (subtotal * 0.18);
-        total = currency(total, { pattern: `# ` }).format()
+        total = subtotal + (subtotal * 0.18);
+        total = currency(total, {
+            pattern: `# `
+        }).format();
+        itbs = subtotal + (subtotal * 0.18);
         table += `
         <div class="d-flex justify-content-between" style="margin:5px">
         <div>
-      <strong><span style="margin-right:10px">${datos.cantidad}</span>
+        <strong><span style="margin-right:10px">${datos.cantidad}</span>
         <span font-size="10px">${datos.nombre}</span></strong> 
         <br>
+        <div style="margin-left:24px;">
         ${guarnicion}
         ${ingrediente}
         ${termino}
         ${instruciones}
+        </div>
         </div>
         <div>
         <strong>RD$${datos.precio * datos.cantidad}</strong>
@@ -87,11 +96,11 @@ function showCarrito() {
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
                 <small>Ley:</small>
-                <small>10%</small>
+                <small>${ley}</small>
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
                 <small>ITBS</small>
-                <small>18%</small>
+                <small>${itbs}</small>
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 15px 15px;">
                 <strong><h7>Total</h7></strong>
@@ -123,18 +132,18 @@ function showCarrito() {
 }
 
 function rojo(codes) {
-    var current = JSON.parse(localStorage.getItem('car'));
+    var current = JSON.parse(sessionStorage.getItem('car'));
     for (var i = 0; i < current.length; i++) {
         if (current[i].codigo == codes) {
             if (current[i].cantidad > 1) {
                 current[i].cantidad -= 1;
                 $("#ModalTable").empty();
-                localStorage.setItem('car', JSON.stringify(current));
+                sessionStorage.setItem('car', JSON.stringify(current));
             } else {
                 current.splice(i, 1);
 
                 $("#ModalTable").empty();
-                localStorage.setItem('car', JSON.stringify(current));
+                sessionStorage.setItem('car', JSON.stringify(current));
             }
         }
     }

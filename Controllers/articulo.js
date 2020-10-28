@@ -218,8 +218,8 @@ function articulo(codigo, precio, nombre, detalle) {
     <div class="modal-body">
       
         <img src="IMG/${codigo}.jpg" style="width: 100%; height: 250px;" style="margin: 5px;"><br>
-        <p style="margin: 15px;">${detalle}</p>
-        <h6 style="margin: 15px;">Instrucciones especiales: </h6>
+        <p style="margin: 15px; font-size:15px;">${detalle}</p>
+        <h6 style="margin: 15px; font-size:15px;">Instrucciones especiales: </h6>
         <div class="form-group" style="margin: 15px;">
             <textarea style="font: 400 13.3333px Arial;" id="instrucion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Inserte aqui las Instrucciones especiales del producto "></textarea>
         </div>
@@ -291,7 +291,7 @@ function addcart() {
     var precio = price;
     var name = $("#nombre").text();
     var instruccion = $('#instrucion').val();
-    var carrito = JSON.parse(localStorage.getItem('car'));
+    var carrito = JSON.parse(sessionStorage.getItem('car'));
     if (carrito == null) {
         carrito = [];
     }
@@ -302,7 +302,7 @@ function addcart() {
         }
         if (dat.nombre == name && dat.guarnicion == guarnicion && dat.ingrediente == ingrediente && dat.termino == termino && dat.instruccion == instruccion) {
             dat.cantidad = parseInt(dat.cantidad) + parseInt(cantidad);
-            localStorage.setItem('car', JSON.stringify(carrito));
+            sessionStorage.setItem('car', JSON.stringify(carrito));
             return Fact();
         }
     }
@@ -318,6 +318,6 @@ function addcart() {
         instruccion: instruccion
     });
 
-    localStorage.setItem('car', JSON.stringify(carrito));
+    sessionStorage.setItem('car', JSON.stringify(carrito));
     Fact();
 }
