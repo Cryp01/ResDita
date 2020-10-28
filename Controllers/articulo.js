@@ -110,7 +110,7 @@ function articulo(codigo, precio, nombre, detalle) {
           <span class="label">Sin  ${item.IN_DESCRI}</span>
           </label>
          `;
-                });
+         });
                 extras += `</div>`;
             } else if (valor.termino == 0 && valor.ingredientes != 0 && valor.guarniciones != 0) {
 
