@@ -13,7 +13,12 @@ function articulo(codigo, precio, nombre, detalle, ofer, tipo) {
     $("#onload").fadeIn();
     Tip = tipo;
     price = precio;
-    des = ofer;
+    des = ofer
+    if (Tip == 'PV') {
+        ofer = `%${ofer}`
+    }
+
+
     $("#ModalTable").empty();
 
     $.ajax({
@@ -343,7 +348,8 @@ function addcart() {
         precio: precio,
         termino: termino,
         instruccion: instruccion,
-        oferta: des
+        oferta: des,
+        tipo: Tip
     });
 
     sessionStorage.setItem('car', JSON.stringify(carrito));

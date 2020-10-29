@@ -24,7 +24,7 @@ function oferta(datos) {
         else if(datos.PV_DESC != 0)
         {
             muestra = `<span class="badge badge-danger badge-pill">%${currency(datos.PV_DESC,{pattern: `# `}).format()}</span>`;
-            des = currency(datos.PV_DESC,{pattern: `# `}).format();
+            des = parseInt(datos.PV_DESC);
             tipo ='PV'
         }
     }

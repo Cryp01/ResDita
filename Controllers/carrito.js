@@ -22,15 +22,25 @@ function showCarrito() {
     var itbs = 0;
     var ofertas = 0;
     var descuento = 0;
-
+    var price = 0;
+    var descon = 0;
     for (let datos of current) {
         guarnicion = '';
         ingrediente = '';
         termino = '';
         instruciones = '';
         ofertas = '';
+        price = 0;
         if (datos.oferta != '') {
-            ofertas = '<small class="badge badge-danger badge-pill">' + datos.oferta + '</small> <br>';
+            if (datos.tipo == 'PV') {
+                ofertas = '<small class="badge badge-danger badge-pill">%' + datos.oferta + '</small> <br>';
+                price = (datos.cantidad * datos.precio) * (datos.oferta / 100);
+                descuento += parseFloat(price);
+                price = (datos.cantidad * datos.precio) - price;
+            } else {
+                ofertas = '<small class="badge badge-danger badge-pill">' + datos.oferta + '</small> <br>';
+                price = datos.cantidad * datos.precio;
+            }
         }
         if (datos.guarnicion) {
             guarnicion = '<small>' + datos.guarnicion + '</small><br>';
@@ -45,7 +55,9 @@ function showCarrito() {
             instruciones = '<small>' + datos.instruccion + '</small>';
         }
 
+
         subtotal += datos.precio * datos.cantidad;
+        descon = currency(descuento, { pattern: `# ` }).format();
         total = subtotal + (subtotal * 0.18);
         total = currency(total, {
             pattern: `# `
@@ -66,7 +78,7 @@ function showCarrito() {
         </div>
         </div>
         <div>
-        <strong>RD$${datos.precio * datos.cantidad}</strong>
+        <strong>RD$${price}</strong>
         <i class="fas fa-times-circle fa-1x" onclick="rojo(${datos.codigo});"></i>
         </div>
        </div>    
@@ -103,19 +115,16 @@ function showCarrito() {
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
                 <small>Ley:</small>
-                <small>${ley}</small>
+                <small>RD$${ley}</small>
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
                 <small>ITBS</small>
-                <small>${itbs}</small>
+                <small>RD$${itbs}</small>
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
                 <small class="text-danger">Descuento</small>
-                <small>RD$${descuento}</small>
+                <small>RD$${descon}</small>
                 </div>
-                <div class="d-flex justify-content-between" style="margin:0px 15px 15px 15px;">
-                <small class="text-danger">Oferta</small>
-                <small>RD$${ofertas}</small>
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 15px 15px;">
                 <strong><h7>Total</h7></strong>
