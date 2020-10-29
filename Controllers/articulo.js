@@ -6,11 +6,14 @@ var extras3 = '';
 var price = 0;
 var code;
 var id = 0;
+var des = 0;
+var Tip = '';
 
-function articulo(codigo, precio, nombre, detalle) {
+function articulo(codigo, precio, nombre, detalle, ofer, tipo) {
     $("#onload").fadeIn();
+    Tip = tipo;
     price = precio;
-
+    des = ofer;
     $("#ModalTable").empty();
 
     $.ajax({
@@ -110,7 +113,7 @@ function articulo(codigo, precio, nombre, detalle) {
           <span class="label">Sin  ${item.IN_DESCRI}</span>
           </label>
          `;
-         });
+                });
                 extras += `</div>`;
             } else if (valor.termino == 0 && valor.ingredientes != 0 && valor.guarniciones != 0) {
 
@@ -211,7 +214,7 @@ function articulo(codigo, precio, nombre, detalle) {
             <h5 id="nombre">${nombre}</h5>
             <div></div>
             <div></div>
-            <div></div>
+            <span class="badge badge-danger badge-pill" style="font-size:20px;">${ofer}</span>
     
         </nav>
     </div>
@@ -270,8 +273,21 @@ function mas(current) {
     precio = document.getElementById('precio');
     cantidad = document.getElementById('cantidad');
     cantidad.value = parseFloat(cantidad.value) + 1;
+    if (Tip == 'OF') {
+        precio.innerHTML = Offerta(cantidad.value) * current;
+    } else if (Tip == 'CXP') {
+        var SEPARADOR = des.indexOf('X');
+        var cand = parseInt(des.substr(0, SEPARADOR));
+        var pres = parseInt(des.substr(SEPARADOR + 1, des.length));
 
-    precio.innerHTML = currency(current * cantidad.value, { pattern: `# ` }).format();
+        precio.innerHTML = currency(Offerta(cantidad.value, cand, pres) * current, {
+            pattern: `# `
+        }).format();
+    } else {
+        precio.innerHTML = currency((current * cantidad.value), {
+            pattern: `# `
+        }).format();
+    }
 }
 
 function menos(current) {
@@ -279,7 +295,18 @@ function menos(current) {
     precio = document.getElementById('precio');
     if (cantidad.value > 1) {
         cantidad.value -= 1;
-        precio.innerHTML = currency((current * cantidad.value), { pattern: `# ` }).format();
+        if (Tip == 'OF') {
+            precio.innerHTML = Offerta(cantidad.value) * current;
+        } else if (Tip == 'CXP') {
+            var SEPARADOR = des.indexOf('X');
+            var cand = parseInt(des.substr(0, SEPARADOR));
+            var pres = parseInt(des.substr(SEPARADOR + 1, des.length));
+            precio.innerHTML = Offerta(cantidad.value, cand, pres) * current;
+        } else {
+            precio.innerHTML = currency((current * cantidad.value), {
+                pattern: `# `
+            }).format();
+        }
     }
 }
 
@@ -315,9 +342,27 @@ function addcart() {
         cantidad: cantidad,
         precio: precio,
         termino: termino,
-        instruccion: instruccion
+        instruccion: instruccion,
+        oferta: des
     });
 
     sessionStorage.setItem('car', JSON.stringify(carrito));
     Fact();
+}
+
+function Offerta(Count, Value = 2, Price = 1) {
+    if (Count < Value) {
+        Oferta = Count;
+    } else {
+        if (Count % Value === 0) {
+            Value = Count / Value;
+            Oferta = Value * Price;
+        } else {
+            Residue = Count % Value;
+            Value = Math.floor(Count / Value) + Residue;
+            Oferta = Value * Price;
+        }
+
+    }
+    return Oferta
 }

@@ -20,12 +20,18 @@ function showCarrito() {
     var total = 0;
     var ley = 0.00;
     var itbs = 0;
+    var ofertas = 0;
+    var descuento = 0;
 
     for (let datos of current) {
         guarnicion = '';
         ingrediente = '';
         termino = '';
         instruciones = '';
+        ofertas = '';
+        if (datos.oferta != '') {
+            ofertas = '<small class="badge badge-danger badge-pill">' + datos.oferta + '</small> <br>';
+        }
         if (datos.guarnicion) {
             guarnicion = '<small>' + datos.guarnicion + '</small><br>';
         }
@@ -49,9 +55,10 @@ function showCarrito() {
         <div class="d-flex justify-content-between" style="margin:5px">
         <div>
         <strong><span style="margin-right:10px">${datos.cantidad}</span>
-        <span font-size="10px">${datos.nombre}</span></strong> 
+        <span  style="font-size:13px;">${datos.nombre}</span></strong> 
         <br>
         <div style="margin-left:24px;">
+        ${ofertas}
         ${guarnicion}
         ${ingrediente}
         ${termino}
@@ -60,7 +67,7 @@ function showCarrito() {
         </div>
         <div>
         <strong>RD$${datos.precio * datos.cantidad}</strong>
-        <i class="fas fa-times-circle fa-2x" onclick="rojo(${datos.codigo});"></i>
+        <i class="fas fa-times-circle fa-1x" onclick="rojo(${datos.codigo});"></i>
         </div>
        </div>    
        </div>                 
@@ -101,6 +108,14 @@ function showCarrito() {
                 <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
                 <small>ITBS</small>
                 <small>${itbs}</small>
+                </div>
+                <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
+                <small class="text-danger">Descuento</small>
+                <small>RD$${descuento}</small>
+                </div>
+                <div class="d-flex justify-content-between" style="margin:0px 15px 15px 15px;">
+                <small class="text-danger">Oferta</small>
+                <small>RD$${ofertas}</small>
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 15px 15px;">
                 <strong><h7>Total</h7></strong>
