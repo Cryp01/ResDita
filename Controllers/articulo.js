@@ -320,7 +320,7 @@ function addcart() {
     var ingrediente = $("input:radio[name=Ingredientes]:checked").val();
     var termino = $("input:radio[name=termino]:checked").val();
     var cantidad = $("#cantidad").val();
-    var precio = price;
+    var precio = parseFloat(document.getElementById('precio').textContent);
     var name = $("#nombre").text();
     var instruccion = $('#instrucion').val();
     var carrito = JSON.parse(sessionStorage.getItem('car'));

@@ -34,12 +34,12 @@ function showCarrito() {
         if (datos.oferta != '') {
             if (datos.tipo == 'PV') {
                 ofertas = '<small class="badge badge-danger badge-pill">%' + datos.oferta + '</small> <br>';
-                price = (datos.cantidad * datos.precio) * (datos.oferta / 100);
+                price = (datos.precio) * (datos.oferta / 100);
                 descuento += parseFloat(price);
-                price = (datos.cantidad * datos.precio) - price;
+                price = datos.precio - price;
             } else {
                 ofertas = '<small class="badge badge-danger badge-pill">' + datos.oferta + '</small> <br>';
-                price = datos.cantidad * datos.precio;
+                price = datos.precio;
             }
         }
         if (datos.guarnicion) {
@@ -56,13 +56,11 @@ function showCarrito() {
         }
 
 
-        subtotal += datos.precio * datos.cantidad;
+        subtotal += datos.precio;
         descon = currency(descuento, { pattern: `# ` }).format();
         total = subtotal + (subtotal * 0.18);
-        total = currency(total, {
-            pattern: `# `
-        }).format();
-        itbs = subtotal + (subtotal * 0.18);
+        total = currency(total, { pattern: `# ` }).format();
+        itbs = currency((subtotal * 0.18), { pattern: `# ` }).format();
         table += `
         <div class="d-flex justify-content-between" style="margin:5px">
         <div>
