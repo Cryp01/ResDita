@@ -32,16 +32,29 @@ function showCarrito() {
         ofertas = '';
         price = 0;
         if (datos.oferta != '') {
+
             if (datos.tipo == 'PV') {
                 ofertas = '<small class="badge badge-danger badge-pill">%' + datos.oferta + '</small> <br>';
                 price = (datos.precio) * (datos.oferta / 100);
                 descuento += parseFloat(price);
+
                 price = datos.precio - price;
-            } else {
+            } else if (datos.tipo == 'OF') {
+
+                price = Offerta(datos.cantidad) * datos.precio;
                 ofertas = '<small class="badge badge-danger badge-pill">' + datos.oferta + '</small> <br>';
-                price = datos.precio;
+            } else if (datos.tipo = "CXP") {
+                var SEPARADOR = datos.oferta.indexOf('X');
+                var cand = parseInt(datos.oferta.substr(0, SEPARADOR));
+                var pres = parseInt(datos.oferta.substr(SEPARADOR + 1, datos.oferta.length));
+
+                price = Offerta(datos.cantidad, cand, pres) * datos.precio;
+                ofertas = '<small class="badge badge-danger badge-pill">' + datos.oferta + '</small> <br>';
             }
+        } else {
+            price = datos.cantidad * datos.precio
         }
+
         if (datos.guarnicion) {
             guarnicion = '<small>' + datos.guarnicion + '</small><br>';
         }
@@ -56,11 +69,23 @@ function showCarrito() {
         }
 
 
-        subtotal += datos.precio;
-        descon = currency(descuento, { pattern: `# ` }).format();
+        subtotal += price;
+        price = currency(price, {
+            pattern: `# `
+        }).format();
+        descon = currency(descuento, {
+            pattern: `# `
+        }).format();
         total = subtotal + (subtotal * 0.18);
-        total = currency(total, { pattern: `# ` }).format();
-        itbs = currency((subtotal * 0.18), { pattern: `# ` }).format();
+        total = currency(total, {
+            pattern: `# `
+        }).format();
+        itbs = currency((subtotal * 0.18), {
+            pattern: `# `
+        }).format();
+        subtotalc = currency(subtotal, {
+            pattern: `# `
+        }).format();
         table += `
         <div class="d-flex justify-content-between" style="margin:5px">
         <div>
@@ -109,7 +134,7 @@ function showCarrito() {
 
                 <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
                     <small>Subtotal</small>
-                    <small>RD$${subtotal}</small>
+                    <small>RD$${subtotalc}</small>
                 </div>
                 <div class="d-flex justify-content-between" style="margin:0px 15px 0px 15px;">
                 <small>Ley:</small>
@@ -170,4 +195,21 @@ function rojo(codes) {
         }
     }
     showCarrito();
+}
+
+function Offerta(Count, Value = 2, Price = 1) {
+    if (Count < Value) {
+        Oferta = Count;
+    } else {
+        if (Count % Value === 0) {
+            Value = Count / Value;
+            Oferta = Value * Price;
+        } else {
+            Residue = Count % Value;
+            Value = Math.floor(Count / Value) + Residue;
+            Oferta = Value * Price;
+        }
+
+    }
+    return Oferta
 }

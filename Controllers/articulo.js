@@ -8,6 +8,7 @@ var code;
 var id = 0;
 var des = 0;
 var Tip = '';
+var can = 1;
 
 function articulo(codigo, precio, nombre, detalle, ofer, tipo) {
     $("#onload").fadeIn();
@@ -239,9 +240,10 @@ function articulo(codigo, precio, nombre, detalle, ofer, tipo) {
            
         </div>
         <h4 style="margin: 15px;">Cantidad: </h4>
-        <div class="d-flex justify-content-between" style="border: 2px solid black; border-radius: 5px; margin:15px; !important">
-            <input type="number" value="1" id="cantidad" style="border: 0px; font-size:20px; color:black;"  size="20%"  disabled>
-            <div>
+        <div class="d-flex justify-content-between" style="border: 2px solid black; border-radius: 5px; margin:15px; align-items:center; !important">
+            <input type="number" value="1" id="cantidad" style="border: 0px; font-size:15px; color:black; margin-left:10px; display:none;" disabled>
+            <strong><span style="font-size:15px; margin-left:15px; color:black;" id="can">1</span></strong>
+            <div style="margin-left:15px">
                 <span class="btn btn-lg btn-danger" id="menos"  style="margin: 5px; width: 50px;font-size:25px;" onclick="menos(${precio})">-</span>
                 <span class="btn btn-lg btn-success" id="mas" style="margin: 5px; width: 50px;font-size:25px;" onclick="mas(${precio})">+</span>
             </div>
@@ -277,7 +279,9 @@ function articulo(codigo, precio, nombre, detalle, ofer, tipo) {
 function mas(current) {
     precio = document.getElementById('precio');
     cantidad = document.getElementById('cantidad');
+    can = document.getElementById('can');
     cantidad.value = parseFloat(cantidad.value) + 1;
+    can.textContent = cantidad.value;
     if (Tip == 'OF') {
         precio.innerHTML = Offerta(cantidad.value) * current;
     } else if (Tip == 'CXP') {
@@ -300,13 +304,16 @@ function menos(current) {
     precio = document.getElementById('precio');
     if (cantidad.value > 1) {
         cantidad.value -= 1;
+        can.textContent = cantidad.value;
         if (Tip == 'OF') {
             precio.innerHTML = Offerta(cantidad.value) * current;
         } else if (Tip == 'CXP') {
             var SEPARADOR = des.indexOf('X');
             var cand = parseInt(des.substr(0, SEPARADOR));
             var pres = parseInt(des.substr(SEPARADOR + 1, des.length));
-            precio.innerHTML = Offerta(cantidad.value, cand, pres) * current;
+            precio.innerHTML = currency(Offerta(cantidad.value, cand, pres) * current, {
+                pattern: `# `
+            }).format();
         } else {
             precio.innerHTML = currency((current * cantidad.value), {
                 pattern: `# `
@@ -345,7 +352,7 @@ function addcart() {
         guarnicion: guarnicion,
         ingrediente: ingrediente,
         cantidad: cantidad,
-        precio: precio,
+        precio: price,
         termino: termino,
         instruccion: instruccion,
         oferta: des,
