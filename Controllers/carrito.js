@@ -93,6 +93,7 @@ function showCarrito() {
         <span  style="font-size:13px;">${datos.nombre}</span></strong> 
         <br>
         <div style="margin-left:24px;">
+        ${datos.Tipodentrega}<br>
         ${ofertas}
         ${guarnicion}
         ${ingrediente}

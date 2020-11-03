@@ -3,12 +3,6 @@
 require './conexion.php';
 
 
-
-
-
-
-
-
 //----------DEPARTAMENTO DE ENTRADAS 
 $carne = $pdo->query("SELECT top 5 rtrim(a.AR_CODIGO) as  codigo, a.AR_DESCRI,a.AR_ITBIS,a.AR_DESCU,a.AR_DETALLE, 
 a.AR_PREDET,a.AL_CODIGO,

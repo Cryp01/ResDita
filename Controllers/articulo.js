@@ -1,5 +1,6 @@
 var modal = document.getElementById("ModalTable");
 var contenido = '';
+var tipo_entrega = '';
 var extras = '';
 var extras2 = '';
 var extras3 = '';
@@ -207,6 +208,13 @@ function articulo(codigo, precio, nombre, detalle, ofer, tipo) {
                 extras += `</div>`;
             }
 
+            // tipo_entrega += `
+            
+           
+            
+            
+            
+            // `
 
             contenido = ` 
         <link rel="stylesheet" href="Styles/radio.css">
@@ -233,12 +241,44 @@ function articulo(codigo, precio, nombre, detalle, ofer, tipo) {
             <textarea style="font: 400 13.3333px Arial;" id="instrucion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Inserte aqui las Instrucciones especiales del producto "></textarea>
         </div>
         <div id="guarnicion">
-
-       
-
-        ${extras}
-           
+        ${extras}          
         </div>
+
+            <div id="tipo_entrega">
+                
+            <form>
+            <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+            <h5 id="bulgy-radios-label">Tipo De Entrega</h5>
+             
+            <label>
+            <input type="radio"  name="tipo" value="pick up"/>
+            <span class="radio"></span>
+            <span class="label">Recoger</span>
+            </label>
+                    
+             
+            <label>
+            <input type="radio"  checked name="tipo" value="Delivery"/>
+            <span class="radio"></span>
+            <span class="label">Delivery</span>
+            </label>
+  
+  
+            <label>
+            <input type="radio"  name="tipo" value="Consumir"/>
+            <span class="radio"></span>
+            <span class="label">Consumir</span>
+            </label>
+  
+  
+  
+  
+            </form>
+            </div>
+
+          
+            </div>
+
         <h4 style="margin: 15px;">Cantidad: </h4>
         <div class="d-flex justify-content-between" style="border: 2px solid black; border-radius: 5px; margin:15px; align-items:center; !important">
             <input type="number" value="1" id="cantidad" style="border: 0px; font-size:15px; color:black; margin-left:10px; display:none;" disabled>
@@ -323,6 +363,7 @@ function menos(current) {
 }
 
 function addcart() {
+    var TipoEn = $("input:radio[name=tipo]:checked").val();
     var guarnicion = $("input:radio[name=guarnicion]:checked").val();
     var ingrediente = $("input:radio[name=Ingredientes]:checked").val();
     var termino = $("input:radio[name=termino]:checked").val();
@@ -339,7 +380,7 @@ function addcart() {
         if (dat.codigo == id) {
             id += 1;
         }
-        if (dat.nombre == name && dat.guarnicion == guarnicion && dat.ingrediente == ingrediente && dat.termino == termino && dat.instruccion == instruccion) {
+        if (dat.nombre == name && dat.guarnicion == guarnicion && dat.ingrediente == ingrediente && dat.termino == termino && dat.instruccion == instruccion && dat.Tipodentrega == TipoEn ) {
             dat.cantidad = parseInt(dat.cantidad) + parseInt(cantidad);
             sessionStorage.setItem('car', JSON.stringify(carrito));
             return Fact();
@@ -356,7 +397,10 @@ function addcart() {
         termino: termino,
         instruccion: instruccion,
         oferta: des,
-        tipo: Tip
+        tipo: Tip,
+        Tipodentrega:TipoEn
+        
+
     });
 
     sessionStorage.setItem('car', JSON.stringify(carrito));
