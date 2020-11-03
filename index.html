@@ -133,6 +133,36 @@
     .hidden {
         overflow: hidden;
     }
+    
+    .funado {
+        bottom: 15px;
+        position: relative;
+        right: 12px;
+        -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    
+    @-webkit-keyframes slide-bottom {
+        0% {
+            -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+    }
+    
+    @keyframes slide-bottom {
+        0% {
+            -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+    }
 </style>
 
 
@@ -160,7 +190,9 @@
         </div>
         <div class="car">
             <i class="fas fa-info-circle fa-2x"></i>
-            <i class="fas fa-shopping-cart fa-2x" id="carrito" onclick="showCarrito();" data-toggle="modal" data-target="#myModal" data-placement="center"></i>
+            <i class="fas fa-shopping-cart fa-2x" id="carrito" onclick="showCarrito();" data-toggle="modal" data-target="#myModal" data-placement="center">
+            </i>
+            <span class="badge badge-pill badge-danger funado" id="cand"></span>
         </div>
     </nav>
     <div class="parallax">

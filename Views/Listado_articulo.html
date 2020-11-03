@@ -41,6 +41,48 @@
             width: 1170px !important;
         }
     }
+    
+    .funado {
+        bottom: 15px;
+        position: relative;
+        right: 12px;
+        -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    
+    @-webkit-keyframes slide-bottom {
+        0% {
+            -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+    }
+    
+    @keyframes slide-bottom {
+        0% {
+            -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+    }
+    
+    .dep {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f05454;
+        padding: 10px;
+        width: 100%;
+        font-family: Coast Redwood;
+        color: white;
+        font-size: 80px;
+    }
 </style>
 <div class="modal-header">
 
@@ -51,6 +93,7 @@
         <div class="car">
             <i class="fas fa-info-circle fa-2x"></i>
             <i class="fas fa-shopping-cart fa-2x" onclick="showCarrito();"></i>
+            <span class="badge badge-pill badge-danger funado" id="cand"></span>
         </div>
 </div>
 <div class="modal-body">
@@ -99,7 +142,9 @@
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                    <img src="IMG/Entradas.jpg" width="100%" height="150px" class="categoria"><br><br>
+                    <div class="dep">
+                        <p>Entradas</p>
+                    </div><br>
                     <ul class="list-unstyled" id="Entradas">
                     </ul>
                 </div>
@@ -118,7 +163,9 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                    <img src="IMG/salsas.jpg" width="100%" height="150px" class="categoria"><br><br>
+                    <div class="dep">
+                        <p>Salsas</p>
+                    </div><br>
                     <ul class="list-unstyled" id="Ensaladas">
                     </ul>
                 </div>
@@ -140,7 +187,9 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
-                    <img src="IMG/aves.jpg" width="100%" height="150px" class="categoria"><br><br>
+                    <div class="dep">
+                        <p>Aves</p>
+                    </div><br>
                     <ul class="list-unstyled" id="Aves">
                     </ul>
                 </div>
@@ -162,7 +211,9 @@
             </div>
             <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordion">
                 <div class="card-body">
-                    <img src="IMG/Carnes.jpg" width="100%" height="150px" class="categoria"><br><br>
+                    <div class="dep">
+                        <p>Carnes</p>
+                    </div><br>
                     <ul class="list-unstyled" id="Carnes">
                     </ul>
                 </div>
@@ -186,7 +237,9 @@
             </div>
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                 <div class="card-body">
-                    <img src="IMG/mariscos.jpg" width="100%" height="150px" class="categoria"><br><br>
+                    <div class="dep">
+                        <p>Mariscos</p>
+                    </div><br>
                     <ul class="list-unstyled" id="Mariscos">
                     </ul>
                 </div>
@@ -208,7 +261,9 @@
             </div>
             <div id="collapseSIX" class="collapse" aria-labelledby="headingSIX" data-parent="#accordion">
                 <div class="card-body">
-                    <img src="IMG/Sandwich.jpg" width="100%" height="150px" class="categoria"><br><br>
+                    <div class="dep">
+                        <p>Sandwich</p>
+                    </div><br>
                     <ul class="list-unstyled" id="Pastas">
                     </ul>
                 </div>
@@ -227,4 +282,5 @@
             $('#onload').fadeOut();
             //$('body').removeClass('hidden');
         }
+        document.getElementById("cand").innerHTML = itemes();
     </script>

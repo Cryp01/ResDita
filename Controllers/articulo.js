@@ -360,6 +360,7 @@ function addcart() {
     });
 
     sessionStorage.setItem('car', JSON.stringify(carrito));
+
     Fact();
 }
 
