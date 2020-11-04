@@ -13,7 +13,7 @@ function itemes() {
     for (cant of carrito) {
         cants += parseInt(cant.cantidad);
     }
-    if (cants != null) {
+    if (cants != null || cants > 0) {
         return cants
     } else {
         return '';
